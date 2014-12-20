@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>jquery.balloon.js Demo page</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.tile.js"></script>
-    <script type="text/javascript" src="js/jquery.balloon.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" href="style.css">
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/jquery.tile.js"></script>
+    <script src="js/jquery.balloon.js"></script>
+    <script>
       $(function() {
         $.balloon.defaults.classname = "balloon";
         $('.sample-outer').tile(2);
@@ -24,7 +24,7 @@
     <div class="section how-to-use">
       <p>(1) Download and load this plugin javascript file after jQuery.</p>
       <code class="basic-code">
-        &lt;script type=&quot;text/javascript&quot; src=&quot;js/<span class="keyword">jquery.balloon.js</span>&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;js/<span class="keyword">jquery.balloon.js</span>&quot;&gt;&lt;/script&gt;
       </code>
       <p>(2) Call $().balloon(options) in document ready event of jQuery.</p>
       <code class="basic-code">
@@ -154,7 +154,7 @@
         </div>
         <div id="sample3-demo">
           <div title="$(this).balloon();"></div>
-          <div title="$(this).balloon({ offsetX: 200 });"></div>
+          <div title="$(this).balloon({ offsetX: 50 });"></div>
           <div title="$(this).balloon({ offsetY: -100 });"></div>
           <div title="$(this).balloon({ position: 'bottom right', offsetX: -100, offsetY: 10 });"></div>
         </div>
