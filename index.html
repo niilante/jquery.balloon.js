@@ -318,11 +318,11 @@
           <code class="sample-script">
             $('.sample10-1').balloon({<br />
             &nbsp;&nbsp;showDuration: "slow",<br />
-            &nbsp;&nbsp;showAnimation: function(d) { this.fadeIn(d); }<br />
+            &nbsp;&nbsp;showAnimation: function(d, c) { this.fadeIn(d, c); }<br />
             });<br />
             $('.sample10-2').balloon({<br />
             &nbsp;&nbsp;hideDuration: "slow",<br />
-            &nbsp;&nbsp;hideAnimation: function(d) { this.slideUp(d); }<br />
+            &nbsp;&nbsp;hideAnimation: function(d, c) { this.slideUp(d, c); }<br />
             });
           </code>
         </div>
