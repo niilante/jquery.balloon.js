@@ -19,7 +19,7 @@
 
   <body>
     <h1><a href="index.html" title="Reload?">jquery.balloon.js Demos</a></h1>
-    <h2>A jQuery plugin to add balloon tips to elements<br />
+    <h2>A jQuery plugin to add balloon tips to elements<br>
       User-friendly, fine-tunable and without css and images</h2>
     <h3>Getting started</h3>
     <div class="section how-to-use">
@@ -29,8 +29,8 @@
       </code>
       <p>(2) Call $().balloon(options) in document ready event of jQuery.</p>
       <code class="basic-code">
-        $(function() {<br />
-        &nbsp;&nbsp;$('<var>selectors</var>').<span class="keyword">balloon</span>(<var>options</var>);<br />
+        $(function() {<br>
+        &nbsp;&nbsp;$('<var>selectors</var>').<span class="keyword">balloon</span>(<var>options</var>);<br>
         });
       </code>
     </div>
@@ -59,7 +59,7 @@
               var q = ($.type($.balloon.defaults[k]) == "string") ? "&quot;" : "";
               p.push(k + ": " + q + $.balloon.defaults[k] + q);
             }
-            document.write(p.join(",<br />"));
+            document.write(p.join(",<br>"));
           })();
         </script>
       </div>
@@ -69,7 +69,7 @@
             var p = [];
             for(var k in $.balloon.defaults.css)
               p.push("&nbsp;&nbsp;" + k + ": &quot;" + $.balloon.defaults.css[k] + "&quot;");
-            document.write("css: {<br />" + p.join(",<br />") + "<br />}");
+            document.write("css: {<br>" + p.join(",<br>") + "<br>}");
           })();
         </script>
       </div>
@@ -98,7 +98,7 @@
           <code class="sample-script"><p>$('#sample1 a').balloon();</p><p>$('#sample1 img').balloon();</p></code>
         </div>
         <div id="sample1-demo">
-          <a href="http://en.wikipedia.org/wiki/Relativism"><img src="img/Wiki.png" alt="Wikipedia, the free encyclopedia" width="135" height="155" /></a></p>
+          <a href="http://en.wikipedia.org/wiki/Relativism"><img src="img/Wiki.png" alt="Wikipedia, the free encyclopedia" width="135" height="155"></a></p>
           <p>Relativism is the concept that points of view have no absolute <a href="http://en.wikipedia.org/wiki/Truth" title="Truth">truth</a> or <a href="http://en.wikipedia.org/wiki/Validity" title="Validity">validity</a>, having only relative, subjective value according to differences in perception and consideration.<sup><a href="#cite_note-0"><span>[</span>1<span>]</span></a></sup><sup><a href="#cite_note-1"><span>[</span>2<span>]</span></a></sup> The term is often used to refer to the context of <a href="http://en.wikipedia.org/wiki/Moral" title="Moral">moral</a> principle, where in a relativistic mode of thought, <a href="http://en.wikipedia.org/wiki/Value_(personal_and_cultural)" title="Value (personal and cultural)">principles</a> and <a href="http://en.wikipedia.org/wiki/Ethics" title="Ethics">ethics</a> are regarded as applicable in only limited context. There are many forms of relativism which vary in their degree of controversy.<sup><a href="#cite_note-2"><span>[</span>3<span>]</span></a></sup></p>
         </div>
       </div>
@@ -168,14 +168,15 @@
         </style>
         <div class="sample-explanation">
           <h4>contents</h4>
-          <p>Option <var>contents</var> is contents of balloon, any HTML string or jQuery object. If an img element has both title and alt property, use title.</p>
+          <p>Option <var>contents</var> is contents of balloon, any string or jQuery object. Use option <var>html</var> for raw HTML. If an img element has both title and alt property, use title.</p>
           <code class="sample-script">
-            $('.sample4-1').balloon({<br />
-            &nbsp;&nbsp;contents: '&lt;a href=&quot;#&quot;&gt;Any HTML!&lt;/a&gt;&lt;br /&gt;'<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;+'&lt;input type=&quot;text&quot; size=&quot;40&quot; /&gt;'<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;+'&lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;'<br />
-            });<br />
-            $('.sample4-2').balloon({ contents: $('h1').clone() });
+            $('.sample4-1').balloon({<br>
+            &nbsp;&nbsp;html: true,<br>
+            &nbsp;&nbsp;contents: '&lt;a href=&quot;#&quot;&gt;Any HTML!&lt;/a&gt;&lt;br&gt;'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;+'&lt;input type=&quot;text&quot; size=&quot;40&quot;&gt;'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;+'&lt;input type=&quot;submit&quot; value=&quot;Search&quot;&gt;'<br>
+            });<br>
+            $('.sample4-2').balloon({ html: true, contents: $('h1').clone() });
           </code>
         </div>
         <div id="sample4-demo">
@@ -193,7 +194,7 @@
           <h4>classname</h4>
           <p>Option <var>classname</var> is added to class of balloon.</p>
           <code class="sample-script">
-            $('.sample5').balloon({ classname: "balloonTip" });
+            $('.sample5').balloon({ html: true, classname: "balloonTip" });
           </code>
         </div>
         <div id="sample5-demo">
@@ -210,7 +211,7 @@
           <h4>tipSize</h4>
           <p>Option <var>tipSize</var> is a number in pixels to specify size of tip triangle. If tipSize is 0, balloon does not have tip.</p>
           <code class="sample-script">
-            $('.sample6-1').balloon({ tipSize: 50 });<br />
+            $('.sample6-1').balloon({ tipSize: 50 });<br>
             $('.sample6-2').balloon({ tipSize: 0 });
           </code>
         </div>
@@ -235,24 +236,25 @@
           <h4>css</h4>
           <p>Option <var>css</var> is an style object applied to balloon. See <a href="http://api.jquery.com/css/">.css() ? jQuery API</a> for reference.</p>
           <code class="sample-script">
-            $('.sample7-1').balloon({<br />
-            &nbsp;&nbsp;tipSize: 24,<br />
-            &nbsp;&nbsp;css: {<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;border: 'solid 4px #5baec0',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;padding: '10px',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;fontSize: '150%',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;fontWeight: 'bold',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;lineHeight: '3',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;backgroundColor: '#666',<br />
-            &nbsp;&nbsp;&nbsp;&nbsp;color: '#fff'<br />
-            &nbsp;&nbsp;}<br />
-            });<br />
-            $('.sample7-2').balloon({<br />
-            &nbsp;&nbsp;tipSize: 0, offsetY: -100, offsetX: -100,<br />
-            &nbsp;&nbsp;showDuration: 0, hideDuration: 0,<br />
-            &nbsp;&nbsp;classname: 'balloon-sample7-2',<br />
-            &nbsp;&nbsp;css: null /* prevent default */<br />
-            });<br />
+            $('.sample7-1').balloon({<br>
+            &nbsp;&nbsp;tipSize: 24,<br>
+            &nbsp;&nbsp;css: {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;border: 'solid 4px #5baec0',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;padding: '10px',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;fontSize: '150%',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;fontWeight: 'bold',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;lineHeight: '3',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;backgroundColor: '#666',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;color: '#fff'<br>
+            &nbsp;&nbsp;}<br>
+            });<br>
+            $('.sample7-2').balloon({<br>
+            &nbsp;&nbsp;html: true,<br>
+            &nbsp;&nbsp;tipSize: 0, offsetY: -100, offsetX: -100,<br>
+            &nbsp;&nbsp;showDuration: 0, hideDuration: 0,<br>
+            &nbsp;&nbsp;classname: 'balloon-sample7-2',<br>
+            &nbsp;&nbsp;css: null /* prevent default */<br>
+            });<br>
           </code>
         </div>
         <div id="sample7-demo">
@@ -270,7 +272,7 @@
           <h4>minLifetime</h4>
           <p>Option <var>minLifetime</var> is a number in milliseconds to keep shown at least this duration.</p>
           <code class="sample-script">
-            $('.sample8-1').balloon({ minLifetime: 2000 });<br />
+            $('.sample8-1').balloon({ minLifetime: 2000 });<br>
             $('.sample8-2').balloon({ minLifetime: 0 });
           </code>
         </div>
@@ -289,14 +291,14 @@
           <h4>showDuration, hideDuration</h4>
           <p>Options <var>showDuration</var> and <var>hideDuration</var> are string or number determining how long the showing and hinding animation will run. If no need animation, specify 0.</p>
           <code class="sample-script">
-            $('.sample9-1').balloon({<br />
-            &nbsp;&nbsp;showDuration: 1000, hideDuration: 500<br />
-            });<br />
-            $('.sample9-2').balloon({<br />
-            &nbsp;&nbsp;showDuration: 500, hideDuration: 0<br />
-            });<br />
-            $('.sample9-3').balloon({<br />
-            &nbsp;&nbsp;minLifetime: 0, showDuration: 0, hideDuration: 0<br />
+            $('.sample9-1').balloon({<br>
+            &nbsp;&nbsp;showDuration: 1000, hideDuration: 500<br>
+            });<br>
+            $('.sample9-2').balloon({<br>
+            &nbsp;&nbsp;showDuration: 500, hideDuration: 0<br>
+            });<br>
+            $('.sample9-3').balloon({<br>
+            &nbsp;&nbsp;minLifetime: 0, showDuration: 0, hideDuration: 0<br>
             });
           </code>
         </div>
@@ -316,13 +318,13 @@
           <h4>showAnimation, hideAnimation</h4>
           <p>Options <var>showAnimation</var> and <var>hideAnimation</var> are the function performed at showing and hiding. The parameter of the function is duration of the animation, and <var>this</var> in the function is the jQuery object of balloon. Default <var>showAnimation</var> is $().show(<var>showDuration</var>). Default <var>hideAnimation</var> is $().fadeOut(<var>hideDuration</var>).</p>
           <code class="sample-script">
-            $('.sample10-1').balloon({<br />
-            &nbsp;&nbsp;showDuration: "slow",<br />
-            &nbsp;&nbsp;showAnimation: function(d, c) { this.fadeIn(d, c); }<br />
-            });<br />
-            $('.sample10-2').balloon({<br />
-            &nbsp;&nbsp;hideDuration: "slow",<br />
-            &nbsp;&nbsp;hideAnimation: function(d, c) { this.slideUp(d, c); }<br />
+            $('.sample10-1').balloon({<br>
+            &nbsp;&nbsp;showDuration: "slow",<br>
+            &nbsp;&nbsp;showAnimation: function(d, c) { this.fadeIn(d, c); }<br>
+            });<br>
+            $('.sample10-2').balloon({<br>
+            &nbsp;&nbsp;hideDuration: "slow",<br>
+            &nbsp;&nbsp;hideAnimation: function(d, c) { this.slideUp(d, c); }<br>
             });
           </code>
         </div>
@@ -335,7 +337,7 @@
       <div id="sample11" class="sample-outer">
         <script>
           $(function() {
-            new Image().src = "img/balloon-sample-loading.gif";
+            new Image().src = "img/balloon-sample-loading.gif"; // to load image at first.
             eval($('#sample11 .sample-script').text());
           });
         </script>
@@ -346,14 +348,14 @@
           <h4>url, ajaxComplete</h4>
           <p>Options <var>url</var> and <var>ajaxComplete</var> are used for getting contents by Ajax. Option contents is used at first. At completion of the ajax request, contents of balloon is relplaced by the data. The functon ajaxComplete is called at completion of ajax. Parameter of this function are same as third parameter of <a href="http://api.jquery.com/load/">.load() ? jQuery API</a>.</p>
           <code class="sample-script">
-            $('.sample11-1').balloon({<br />
-              &nbsp;&nbsp;position: 'right',<br />
-              &nbsp;&nbsp;url: '/jquery.tile.js/index.html .sample:first'<br />
-            });<br />
-            $('.sample11-2').balloon({<br />
-              &nbsp;&nbsp;position: 'right',<br />
-              &nbsp;&nbsp;contents: '&lt;img src=&quot;img/balloon-sample-loading.gif&quot; alt=&quot;loading...&quot; width=&quot;25&quot; height=&quot;25&quot; /&gt;',<br />
-              &nbsp;&nbsp;url: '/jquery.tile.js/js/jquery.tile.js'<br />
+            $('.sample11-1').balloon({<br>
+              &nbsp;&nbsp;position: 'right',<br>
+              &nbsp;&nbsp;url: '/jquery.tile.js/index.html .sample:first'<br>
+            });<br>
+            $('.sample11-2').balloon({<br>
+              &nbsp;&nbsp;html: true, position: 'right',<br>
+              &nbsp;&nbsp;contents: '&lt;img src=&quot;img/balloon-sample-loading.gif&quot; alt=&quot;loading...&quot; width=&quot;25&quot; height=&quot;25&quot;&gt;',<br>
+              &nbsp;&nbsp;url: '/jquery.tile.js/js/jquery.tile.js'<br>
             });
           </code>
         </div>
@@ -373,6 +375,7 @@
           shown ? $(this).hideBalloon() : $(this).showBalloon();
           shown = !shown;
         }).showBalloon({
+          html: true,
           position: "left",
           offsetX: 50,
           offsetY: 50,
@@ -389,18 +392,18 @@
       });
     </script>
     <div id="advanced-methods">
-      <img src="img/chess.png" id="knight" class="clearfix" alt="knight of chess" title="Click me to toggle balloon.<br /><span style=&quot;font-size: 90%; font-weight: normal; color: #743946&quot;>Common sense is the collection of prejudices acquired by age eighteen.</span>" width="256" height="256" />
+      <img src="img/chess.png" id="knight" class="clearfix" alt="knight of chess" title="Click me to toggle balloon.<br><span style=&quot;font-size: 90%; font-weight: normal; color: #743946&quot;>Common sense is the collection of prejudices acquired by age eighteen.</span>" width="256" height="256">
       <p>To bind another event, use $().showBalloon(<var>options</var>) and $().hideBalloon(<var>options</var>).</p>
       <p>This sample (an image element of knight of chess) binds these methods to click event. It is not necessary to specify options for each calling.</p>
       <p>The opsions for the jQuery object is chached by calling these methods.</p>
       <p>All methods of this plugin return jQuery object to chain methods.</p>
       <code class="basic-code">
-        $(function() {<br />
-        &nbsp;&nbsp;var shown = true;<br />
-        &nbsp;&nbsp;$('#knight').on("click", function() {<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;shown ? $(this).<span class="keyword">hideBalloon</span>() : $(this).<span class="keyword">showBalloon</span>();<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;shown = !shown;<br />
-        &nbsp;&nbsp;}).<span class="keyword">showBalloon</span>({ ... });<br />
+        $(function() {<br>
+        &nbsp;&nbsp;var shown = true;<br>
+        &nbsp;&nbsp;$('#knight').on("click", function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;shown ? $(this).<span class="keyword">hideBalloon</span>() : $(this).<span class="keyword">showBalloon</span>();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;shown = !shown;<br>
+        &nbsp;&nbsp;}).<span class="keyword">showBalloon</span>({ ... });<br>
         });
       </code>
     </div>
@@ -409,17 +412,17 @@
     <div id="change-defaults" class="section">
       <p>If you want to change default options, over-write <var>$.balloon.defaults</var>.</p>
       <code class="basic-code">
-        $(function() {<br />
-        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults</span>.tipSize = 0;<br />
-        &nbsp;&nbsp;$('selectors').balloon();<br />
+        $(function() {<br>
+        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults</span>.tipSize = 0;<br>
+        &nbsp;&nbsp;$('selectors').balloon();<br>
         });
       </code>
       <p>If you want to specify all styles in your css, use <var>classname</var> and prevent default css as shown below.</p>
       <code class="basic-code">
-        $(function() {<br />
-        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults</span>.classname = "my-balloon";<br />
-        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults.css</span> = null;<br />
-        &nbsp;&nbsp;$('selectors').balloon();<br />
+        $(function() {<br>
+        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults</span>.classname = "my-balloon";<br>
+        &nbsp;&nbsp;<span class="keyword">$.balloon.defaults.css</span> = null;<br>
+        &nbsp;&nbsp;$('selectors').balloon();<br>
         });
       </code>
     </div>
