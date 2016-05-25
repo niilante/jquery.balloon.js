@@ -206,12 +206,11 @@
       if(!isNew && $balloon.data('active')) { return; }
       $balloon.data('active', true);
       clearTimeout($balloon.data('minLifetime'));
-      const contents = $.isFunction(options.contents)
-        ? options.contents.apply(this)
-        : (options.contents || (options.contents = $target.attr('title') || $target.attr('alt')));
-      if(!options.url && contents === '' || contents == null) { return; }
+      const contents = $.isFunction(options.contents) ? options.contents.apply(this)
+        : (options.contents || $target.attr('title') || $target.attr('alt'));
       $target.removeAttr('title');
-      options.contents = contents;
+      if(!options.url && contents === '' || contents == null) { return; }
+      if(!$.isFunction(options.contents)) { options.contents = contents; }
       if(options.url) {
         if(!$balloon.data('ajaxDisabled')) {
           if(contents !== '' && contents != null) {
