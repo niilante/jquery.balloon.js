@@ -6,7 +6,7 @@
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  * @author: Hayato Takenaka (https://urin.github.io)
- * @version: 1.0.0 - 2016/05/25
+ * @version: 1.0.1 - 2016/05/25
 **/
 (function($) {
   'use strict';
@@ -209,35 +209,40 @@
       const contents = $.isFunction(options.contents)
         ? options.contents.apply(this)
         : (options.contents || (options.contents = $target.attr('title') || $target.attr('alt')));
-      if(options.html) {
-        $balloon.append(contents);
-      } else {
-        $balloon.text(contents);
-      }
-      if(!options.url && $balloon.html() === '') { return; }
-      if(!isNew && contents !== $balloon.html()) {
-        if(options.html) {
-          $balloon.empty().append(contents);
-        } else {
-          $balloon.text(contents);
-        }
-      }
+      if(!options.url && contents === '') { return; }
       $target.removeAttr('title');
-      if(options.url && !$balloon.data('ajaxDisabled')) {
-        clearTimeout($balloon.data('ajaxDelay'));
-        $balloon.data('ajaxDelay',
-          setTimeout(function() {
-            $balloon.load($.isFunction(options.url) ? options.url(this) : options.url, function(res, sts, xhr) {
-              if(sts !== 'success' && sts !== 'notmodified') { return; }
-              $balloon.data('ajaxDisabled', true);
-              if(options.ajaxContentsMaxAge >= 0) {
-                setTimeout(function() { $balloon.data('ajaxDisabled', false); }, options.ajaxContentsMaxAge);
-              }
-              if(options.ajaxComplete) { options.ajaxComplete(res, sts, xhr); }
-              makeupBalloon($target, $balloon, options);
-            });
-          }, options.ajaxDelay)
-        );
+      if(options.url) {
+        if(isNew && contents !== '') {
+          if(options.html) {
+            $balloon.empty().append(contents);
+          } else {
+            $balloon.text(contents);
+          }
+        }
+        if(!$balloon.data('ajaxDisabled')) {
+          clearTimeout($balloon.data('ajaxDelay'));
+          $balloon.data('ajaxDelay',
+            setTimeout(function() {
+              $balloon.load($.isFunction(options.url) ? options.url(this) : options.url, function(res, sts, xhr) {
+                if(sts !== 'success' && sts !== 'notmodified') { return; }
+                $balloon.data('ajaxDisabled', true);
+                if(options.ajaxContentsMaxAge >= 0) {
+                  setTimeout(function() { $balloon.data('ajaxDisabled', false); }, options.ajaxContentsMaxAge);
+                }
+                if(options.ajaxComplete) { options.ajaxComplete(res, sts, xhr); }
+                makeupBalloon($target, $balloon, options);
+              });
+            }, options.ajaxDelay)
+          );
+        }
+      } else {
+        if(contents !== '') {
+          if(options.html) {
+            $balloon.empty().append(contents);
+          } else {
+            $balloon.text(contents);
+          }
+        }
       }
       if(isNew) {
         $balloon
