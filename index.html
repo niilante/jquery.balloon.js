@@ -8,28 +8,6 @@
     <script src="js/jquery-1.10.1.min.js"></script>
     <script src="js/jquery.tile.js"></script>
     <script src="js/jquery.balloon.js"></script>
-    <script>
-      $(function() {
-        $.balloon.defaults.classname = "balloon";
-        $('.sample-outer').tile(2);
-        $('h1 > a').balloon({ position: "bottom" });
-        (function() {
-          var $defaultOptions = $('#default-options > div');
-          var p = [];
-          for(var k in $.balloon.defaults) {
-            if(k == "css") continue;
-            var q = ($.type($.balloon.defaults[k]) == "string") ? "&quot;" : "";
-            p.push(k + ": " + q + $.balloon.defaults[k] + q);
-          }
-          $defaultOptions.eq(0).html(p.join(",<br>"));
-          p = [];
-          for(var k in $.balloon.defaults.css) {
-            p.push("&nbsp;&nbsp;" + k + ": &quot;" + $.balloon.defaults.css[k] + "&quot;");
-          }
-          $defaultOptions.eq(1).html("css: {<br>" + p.join(",<br>") + "<br>}");
-        })();
-      });
-    </script>
   </head>
 
   <body>
@@ -424,6 +402,29 @@
     </div>
 
     <div id="copyright">&copy; 2011 Urin</div>
+
+    <script>
+      $(function() {
+        $.balloon.defaults.classname = "balloon";
+        $('.sample-outer').tile(2);
+        $('h1 > a').balloon({ position: "bottom" });
+        (function() {
+          var $defaultOptions = $('#default-options > div');
+          var p = [];
+          for(var k in $.balloon.defaults) {
+            if(k == "css") continue;
+            var q = ($.type($.balloon.defaults[k]) == "string") ? "&quot;" : "";
+            p.push(k + ": " + q + $.balloon.defaults[k] + q);
+          }
+          $defaultOptions.eq(0).html(p.join(",<br>"));
+          p = [];
+          for(var k in $.balloon.defaults.css) {
+            p.push("&nbsp;&nbsp;" + k + ": &quot;" + $.balloon.defaults.css[k] + "&quot;");
+          }
+          $defaultOptions.eq(1).html("css: {<br>" + p.join(",<br>") + "<br>}");
+        })();
+      });
+    </script>
 
     <!-- Google Universal Analytics -->
     <script>
