@@ -13,6 +13,21 @@
         $.balloon.defaults.classname = "balloon";
         $('.sample-outer').tile(2);
         $('h1 > a').balloon({ position: "bottom" });
+        (function() {
+          var $defaultOptions = $('#default-options > div');
+          var p = [];
+          for(var k in $.balloon.defaults) {
+            if(k == "css") continue;
+            var q = ($.type($.balloon.defaults[k]) == "string") ? "&quot;" : "";
+            p.push(k + ": " + q + $.balloon.defaults[k] + q);
+          }
+          $defaultOptions.eq(0).html(p.join(",<br>"));
+          p = [];
+          for(var k in $.balloon.defaults.css) {
+            p.push("&nbsp;&nbsp;" + k + ": &quot;" + $.balloon.defaults.css[k] + "&quot;");
+          }
+          $defaultOptions.eq(1).html("css: {<br>" + p.join(",<br>") + "<br>}");
+        })();
       });
     </script>
   </head>
@@ -51,27 +66,8 @@
     <h3 id="default-options-title">All options and defaults</h3>
     <div id="default-options" class="clearfix">
       <div>
-        <script>
-          (function() {
-            var p = [];
-            for(var k in $.balloon.defaults) {
-              if(k == "css") continue;
-              var q = ($.type($.balloon.defaults[k]) == "string") ? "&quot;" : "";
-              p.push(k + ": " + q + $.balloon.defaults[k] + q);
-            }
-            document.write(p.join(",<br>"));
-          })();
-        </script>
       </div>
       <div>
-        <script>
-          (function() {
-            var p = [];
-            for(var k in $.balloon.defaults.css)
-              p.push("&nbsp;&nbsp;" + k + ": &quot;" + $.balloon.defaults.css[k] + "&quot;");
-            document.write("css: {<br>" + p.join(",<br>") + "<br>}");
-          })();
-        </script>
       </div>
     </div>
 
